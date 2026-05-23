@@ -129,8 +129,8 @@ export default function CustomizePizza({ flavor, onClose }) {
               </h3>
               {totalSlots < MAX_FLAVORS && (
                 <button onClick={addSlot}
-                  className="flex items-center gap-1 text-brand-500 font-semibold text-sm">
-                  <Plus className="w-4 h-4" /> Sabor
+                  className="flex items-center gap-2 bg-brand-500 text-white px-4 py-2 rounded-xl font-semibold text-sm">
+                  <Plus className="w-4 h-4" /> + Sabor
                 </button>
               )}
             </div>
