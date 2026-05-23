@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__Claude_Preview__preview_start",
+      "Bash(Remove-Item -Force \"C:\\\\Users\\\\adils\\\\OneDrive\\\\Área de Trabalho\\\\pizzaria\\\\src\\\\lib\\\\supabase.js\")",
+      "Bash(Remove-Item -Recurse -Force \"C:\\\\Users\\\\adils\\\\OneDrive\\\\Área de Trabalho\\\\pizzaria\\\\src\\\\firebase\")",
+      "Bash(Write-Output \"Done\")"
+    ]
+  }
+}
