@@ -31,9 +31,20 @@ export const PAYMENT_METHODS = [
   { id: 'dinheiro', label: 'Dinheiro', icon: '💵' },
 ]
 
-export const calcPizzaPrice = (flavor1, flavor2, sizeMultiplier) => {
-  const basePrice = flavor2
-    ? Math.max(flavor1.price, flavor2.price)
-    : flavor1.price
+// flavors = array de sabores selecionados (mínimo 1)
+export const calcPizzaPrice = (flavors, sizeMultiplier) => {
+  const arr = Array.isArray(flavors) ? flavors : [flavors]
+  const basePrice = Math.max(...arr.map((f) => f.price))
   return Math.round(basePrice * sizeMultiplier * 100) / 100
+}
+
+// Compat: aceita (flavor1, flavor2, multiplier) da forma antiga
+export const calcPizzaPriceCompat = (flavor1, flavor2OrMultiplier, multiplierOrUndef) => {
+  if (multiplierOrUndef === undefined) {
+    // nova forma: (flavors[], multiplier)
+    return calcPizzaPrice(flavor1, flavor2OrMultiplier)
+  }
+  // forma antiga: (flavor1, flavor2|null, multiplier)
+  const flavors = flavor2OrMultiplier ? [flavor1, flavor2OrMultiplier] : [flavor1]
+  return calcPizzaPrice(flavors, multiplierOrUndef)
 }
