@@ -5,6 +5,8 @@ import { CartProvider } from './contexts/CartContext'
 
 import Login from './pages/Login'
 import Register from './pages/Register'
+import ForgotPassword from './pages/ForgotPassword'
+import ResetPassword from './pages/ResetPassword'
 import CustomerLayout from './components/CustomerLayout'
 import AdminLayout from './components/AdminLayout'
 import Home from './pages/customer/Home'
@@ -41,8 +43,10 @@ function AppRoutes() {
 
   return (
     <Routes>
-      <Route path="/login"    element={!user ? <Login />    : <Navigate to={profile?.role === 'admin' ? '/admin' : '/'} replace />} />
-      <Route path="/register" element={!user ? <Register /> : <Navigate to={profile?.role === 'admin' ? '/admin' : '/'} replace />} />
+      <Route path="/login"           element={!user ? <Login />           : <Navigate to={profile?.role === 'admin' ? '/admin' : '/'} replace />} />
+      <Route path="/register"        element={!user ? <Register />        : <Navigate to={profile?.role === 'admin' ? '/admin' : '/'} replace />} />
+      <Route path="/forgot-password" element={<ForgotPassword />} />
+      <Route path="/reset-password"  element={<ResetPassword />} />
 
       <Route path="/" element={<ProtectedRoute role="customer"><CartProvider><CustomerLayout /></CartProvider></ProtectedRoute>}>
         <Route index element={<Home />} />

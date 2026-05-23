@@ -65,12 +65,17 @@ export default function Login() {
               {loading ? 'Entrando...' : 'Entrar'}
             </button>
           </form>
-          <p className="text-center text-sm text-gray-500 mt-4">
-            Não tem conta?{' '}
-            <Link to="/register" className="text-brand-500 font-semibold hover:underline">
-              Criar conta
+          <div className="mt-4 text-center space-y-2">
+            <Link to="/forgot-password" className="block text-sm text-brand-500 font-semibold hover:underline">
+              Esqueci minha senha
             </Link>
-          </p>
+            <p className="text-sm text-gray-500">
+              Não tem conta?{' '}
+              <Link to="/register" className="text-brand-500 font-semibold hover:underline">
+                Criar conta
+              </Link>
+            </p>
+          </div>
         </div>
       </div>
     </div>
