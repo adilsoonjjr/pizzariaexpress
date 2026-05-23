@@ -34,7 +34,7 @@ export default async function handler(req, res) {
     const link = `${appUrl}/reset-password?token=${token}`
 
     await resend.emails.send({
-      from: 'PizzaExpress <noreply@pizzariaexpress.vercel.app>',
+      from: 'PizzaExpress <onboarding@resend.dev>',
       to: email,
       subject: 'Redefinir sua senha — PizzaExpress',
       html: `
